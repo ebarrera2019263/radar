@@ -1,40 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Proyecto Radar en Tiempo Real con Next.js y WebSockets
 
-## Getting Started
+Este proyecto es una aplicación web que muestra en un mapa las ubicaciones de los usuarios en tiempo real utilizando Next.js, OpenStreetMap y WebSockets. Los usuarios pueden ingresar su nombre, y su ubicación se actualizará en el mapa junto con la de otros usuarios.
 
-First, run the development server:
+## Funcionalidades
+
+- **Geolocalización en tiempo real**: Muestra la ubicación actual de los usuarios en un mapa.
+- **WebSockets**: Actualiza las ubicaciones de todos los usuarios en tiempo real.
+- **Interfaz de usuario**: Permite a los usuarios ingresar su nombre, que se mostrará en el mapa junto con su ubicación.
+
+## Dependencias
+
+### Cliente
+
+- **react**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **next**: Framework de React para aplicaciones web con renderizado del lado del servidor.
+- **react-leaflet**: Biblioteca para integrar Leaflet (un popular motor de mapas) con React.
+- **leaflet**: Biblioteca de JavaScript para mapas interactivos.
+- **socket.io-client**: Cliente de WebSockets para comunicarse con el servidor de WebSockets.
+- **axios**: Cliente HTTP basado en promesas para realizar solicitudes a la API.
+
+### Servidor
+
+- **socket.io**: Biblioteca para facilitar la implementación de WebSockets en el servidor.
+
+## Instalación y Configuración
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
+```
+
+### 2. Instalar dependencias
+
+```bash
+npm install
+```
+
+### 3. Configurar el servidor de WebSockets
+
+Crea un archivo `server.js` en la raíz del proyecto para configurar el servidor de WebSockets. Este archivo manejará las conexiones y la lógica de transmisión de ubicaciones en tiempo real.
+
+### 4. Configurar `vercel.json`
+
+Crea un archivo `vercel.json` en la raíz del proyecto para asegurar que Vercel ejecute tu servidor de WebSocket correctamente.
+
+### 5. Crear el componente `Map`
+
+Crea el componente `Map` en la carpeta `components` para manejar la geolocalización del usuario y la integración con WebSockets. Asegúrate de integrar correctamente `react-leaflet` y `socket.io-client`.
+
+### 6. Ejecutar el proyecto
+
+Para ejecutar el proyecto localmente, usa:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 7. Desplegar en Vercel
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Sigue los pasos para desplegar tu proyecto en Vercel. Asegúrate de que todos los archivos de configuración estén correctos y que el servidor de WebSocket esté configurado para funcionar en producción.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Uso
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Abre la aplicación en tu navegador.
+2. Ingresa tu nombre en el formulario.
+3. Permite que el navegador acceda a tu ubicación.
+4. Observa cómo tu ubicación y la de otros usuarios se muestran en el mapa en tiempo real.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
