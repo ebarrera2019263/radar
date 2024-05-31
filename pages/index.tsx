@@ -2,7 +2,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 // Cargar el componente Map de forma dinámica para deshabilitar SSR
-const Map = dynamic(() => import('../components/Map'), { ssr: false });
+const MapComponent = dynamic(() => import('../components/Map'), { ssr: false });
 
 export default function Home() {
   return (
@@ -13,8 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Map />
+        <MapComponent />
       </main>
     </div>
+    
   );
 }
