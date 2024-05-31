@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Mapa de Ubicaciones</title>
-        <meta name="description" content="Mapa de ubicaciones usando Next.js y Google Maps" />
+        <meta name="description" content="Mapa de ubicaciones usando Next.js y OpenStreetMap" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>

@@ -57,26 +57,28 @@ const Map = () => {
   return (
     <div>
       {error && <p>{error}</p>}
-      <MapContainer center={location || [0, 0]} zoom={13} style={{ height: '100vh', width: '100%' }}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        {location && (
+      {location ? (
+        <MapContainer center={location} zoom={13} style={{ height: '100vh', width: '100%' }}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
           <Marker position={location}>
             <Popup>
               Tú estás aquí.
             </Popup>
           </Marker>
-        )}
-        {otherLocations.map((loc, index) => (
-          <Marker key={index} position={[loc.latitude, loc.longitude]}>
-            <Popup>
-              {loc.person}
-            </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
+          {otherLocations.map((loc, index) => (
+            <Marker key={index} position={[loc.latitude, loc.longitude]}>
+              <Popup>
+                {loc.person}
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      ) : (
+        <p>Obteniendo ubicación...</p>
+      )}
     </div>
   );
 };
